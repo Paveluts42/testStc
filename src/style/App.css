@@ -1,0 +1,72 @@
+h1 {
+    color: #27aedb;
+    text-align: center;
+}
+
+header {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+main {
+    margin-top: 3rem;
+}
+
+.testForm {
+    text-align: center;
+    width: 60rem;
+    justify-content: center;
+    margin: 0 auto;
+
+
+}
+
+.testForm textarea {
+    width: 60rem;
+
+}
+
+.jumbotron {
+    word-wrap: break-word;
+    max-width: 55rem;
+    height: auto;
+    padding: 5px;
+}
+
+.table-content {
+    width: 187px;
+    height: 40px;
+
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #B8BABC;
+}
+
+.table-borderless {
+    margin: 0 auto;
+}
+
+.table-content p {
+    margin-top: 5px;
+
+}
+
+.table {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.jumbotron td {
+    width: 60px !important;
+    padding: 5px;
+}
+
+.custom-select {
+    width: 200px;
+}
+
+.table-item {
+    margin-top: 5px;
+}
+
