@@ -79,6 +79,7 @@ main {
     margin-top: 5px;
 }
 .secondContetn td{
-   background: #f0f0f0
+   background: #f0f0f0;
+    border-radius: 10px;
 }
 
