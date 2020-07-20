@@ -1,7 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
+
 import {TriangleDownIcon, TriangleRightIcon} from "@primer/octicons-react";
 
 const Task2 = () => {
+
+    const [state, setState] = useState({
+        table: [
+            {tabs: 4, secondContetn: "bla bla bla", open: false},
+            {tabs: 5, secondContetn: "foo bar foobar", open: false},
+            {tabs: 2, secondContetn: "one two three", open: false},
+        ]
+    })
     return (
         <>
             <h1>Тестовое задание № 2</h1>
@@ -10,49 +19,45 @@ const Task2 = () => {
                 <div className='jumbotron'>
                     <table className=" table-borderless">
                         <tbody>
-                        <tr>
-                            <td>
-                                <div className='table-content'><p>4</p></div>
-                            </td>
-                            <td>
-                                <div className='table-content'></div>
-                            </td>
-                            <td>
-                                <div className='table-content'>
-                                    <div className='table-item'>PARAMETRS LIST<TriangleRightIcon verticalAlign='middle'
-                                                                                                 size={27}/></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className='table-content'><p>5</p></div>
-                            </td>
-                            <td>
-                                <div className='table-content'></div>
-                            </td>
-                            <td>
-                                <div className='table-content'>
-                                    <div className='table-item'>PARAMETRS LIST<TriangleRightIcon verticalAlign='middle'
-                                                                                                 size={27}/></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className='table-content'><p>2</p></div>
-                            </td>
-                            <td>
-                                <div className='table-content'></div>
-                            </td>
-                            <td>
-                                <div className='table-content'>
-                                    <div className='table-item'>PARAMETRS LIST<TriangleDownIcon verticalAlign='middle'
-                                                                                                size={27}/></div>
-                                </div>
-                            </td>
-                        </tr>
+                        {
+                            state.table.map((data, idx) => {
+                                return <React.Fragment key={idx + Date.now()}>
+                                <tr >
+                                    <td>
+                                        <button className='table-content'><p>{data.tabs}</p></button>
+                                    </td>
+                                    <td>
+                                        <button className='table-content'>1</button>
+                                    </td>
+                                    <td>
+                                        <button className={data.open? "table-button": 'table-content'}  onClick={() => setState(
+                                            (prevState) => {
+                                                prevState.table[idx].open = !prevState.table[idx].open
+                                                return {...prevState}
+                                            }
+                                        )}>
+                                            {data.open ? <div className='table-item' >PARAMETRS LIST<TriangleDownIcon
+                                                    verticalAlign='middle'
+                                                    size={27}/></div> :
+                                                <div className='table-item'>PARAMETRS LIST<TriangleRightIcon
+                                                    verticalAlign='middle'
+                                                    size={27}/></div>}
+                                        </button>
+                                    </td>
+                                </tr>
 
+                                    {data.open && <tr className='secondContetn'>
+                                            <td >{Date.now()}</td>
+                                            <td> <h3>{data.secondContetn}</h3></td>
+                                        <td>show</td>
+
+
+                                    </tr>}
+                                </React.Fragment>
+
+
+                            })
+                        }
                         </tbody>
                     </table>
                 </div>
